@@ -54,6 +54,17 @@ def mutate(individual):
     individual[pos] = random.randint(0, GENOME_LENGTH - 1)
   return individual
 
+# Funciones auxiliares
+# ---------------------------  
+def mostrar_solucion(individual):
+	for i in range(GENOME_LENGTH):
+		for j in range(GENOME_LENGTH):
+			if (individual[j] == i):
+				print(f"x", end=" ")
+			else:
+				print(f"·", end=" ")
+		print()	
+
 # Algoritmo principal
 # ---------------------------
 def genetic_algorithm():
@@ -77,3 +88,4 @@ def genetic_algorithm():
 # ---------------------------
 best = genetic_algorithm()
 print(f"Mejor individuo encontrado: {best}, Fitness = {fitness(best)}")	
+print(mostrar_solucion(best))
